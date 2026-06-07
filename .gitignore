@@ -13,9 +13,6 @@ __pycache__/
 # W&B
 wandb/
 
-# Model artifacts
-model/artifacts/
-
 # Logs
 *.log
 
