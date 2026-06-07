@@ -10,7 +10,7 @@ from model.preprocess import preprocess_image
 # Device 
 # =====================================
 
-device = 'cuda' if torch.cuda.is_available() else 'cpu'
+device = torch.device('cpu')
 
 
 # =====================================
@@ -42,7 +42,7 @@ model.fc = nn.Linear(
     10
 )
 
-checkpoint = torch.load(f = 'model/artifacts/model_state_dict.pth')
+checkpoint = torch.load(f='model/artifacts/model_state_dict.pth', map_location='cpu', weights_only=True)
 
 model.load_state_dict(checkpoint['model_state_dict'])
 
