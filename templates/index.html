@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CIFAR-10 Classifier</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <div class="noise"></div>
+
+  <header>
+    <div class="logo">
+      <span class="logo-icon">⬡</span>
+      <span class="logo-text">IMAG<em>.</em>AI</span>
+    </div>
+    <div class="status-badge" id="statusBadge">
+      <span class="dot"></span>
+      <span id="statusText">Checking…</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Image<br/><span class="accent">Classification</span></h1>
+      <p class="subtitle">CIFAR-10 · ResNet · FastAPI</p>
+    </section>
+
+    <section class="card upload-card" id="uploadCard">
+      <div class="drop-zone" id="dropZone">
+        <div class="drop-icon">↑</div>
+        <p class="drop-label">Drop image here</p>
+        <p class="drop-sub">or</p>
+        <label class="btn-upload" for="fileInput">Browse File</label>
+        <input type="file" id="fileInput" accept="image/*" hidden />
+        <p class="drop-hint">JPG · PNG · WEBP · BMP · GIF</p>
+      </div>
+    </section>
+
+    <section class="card preview-card hidden" id="previewCard">
+      <div class="preview-wrap">
+        <img id="previewImg" src="" alt="Preview" />
+        <button class="btn-reset" id="resetBtn">✕ Reset</button>
+      </div>
+      <button class="btn-predict" id="predictBtn">
+        <span class="btn-text">Classify →</span>
+        <span class="btn-loader hidden"></span>
+      </button>
+    </section>
+
+    <section class="card result-card hidden" id="resultCard">
+      <div class="result-label-wrap">
+        <span class="result-tag">Prediction</span>
+        <h2 class="result-label" id="resultLabel">—</h2>
+      </div>
+      <div class="confidence-wrap">
+        <div class="confidence-header">
+          <span class="conf-tag">Confidence</span>
+          <span class="conf-val" id="confVal">0%</span>
+        </div>
+        <div class="bar-track">
+          <div class="bar-fill" id="barFill"></div>
+        </div>
+      </div>
+      <div class="classes-grid" id="classesGrid"></div>
+    </section>
+
+    <div class="error-toast hidden" id="errorToast">
+      <span id="errorMsg">Something went wrong.</span>
+    </div>
+  </main>
+
+  <footer>
+    <span>Built on FastAPI &amp; PyTorch</span>
+    <span class="sep">·</span>
+    <span>CIFAR-10 Dataset</span>
+  </footer>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
